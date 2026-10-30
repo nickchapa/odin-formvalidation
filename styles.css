@@ -1,3 +1,15 @@
-input:user-invalid {
+input[type="email"] {
+    appearance: none;
+}
+
+input:invalid {
     border: dotted 2px red;
+}
+
+input:focus:invalid {
+    outline: none;
+}
+
+.error.active {
+    background-color: red;
 }
