@@ -1,13 +1,23 @@
 input[type="email"] {
+    -webkit-appearance: none;
     appearance: none;
+    outline: none;
 }
 
-input:invalid {
+input:user-invalid {
     border: dotted 2px red;
 }
 
+input:valid {
+    border: solid 2px blue;
+}
+
+input:focus {
+    border: solid 2px green;
+}
+
 input:focus:invalid {
-    outline: none;
+    border: solid 2px darkred;
 }
 
 .error.active {
