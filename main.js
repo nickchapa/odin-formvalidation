@@ -13,7 +13,9 @@ form.addEventListener("submit", (e) => {
 })
 
 function showError(){
-    if(email.validity.typeMismatch){
+    if(email.validity.typeMismatch ||
+        email.validity.valueMissing
+    ){
         emailError.textContent = 'Invalid Email, Mate';
         emailError.className = 'error active';
         console.log('invalid email');
