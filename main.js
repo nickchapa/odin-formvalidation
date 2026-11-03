@@ -1,6 +1,8 @@
 const email = document.querySelector('#input-email');
 const form = document.querySelector('#form');
 const emailError = document.querySelector('.error-email');
+const password = document.querySelector('#input-pass');
+const passwordConfirmation = document.querySelector('#input-pass-confirm');
 
 email.addEventListener("input", (e) => {
     showError();
@@ -25,3 +27,14 @@ function showError(){
         console.log('valid email!')
     }
 }
+
+function passConfirmError(){
+    if(password.value != passwordConfirmation.value){
+        console.log('password and confirmation does not match');
+    }
+    else console.log('passwords match');
+}
+
+passwordConfirmation.addEventListener("input", (e) => {
+    passConfirmError();
+});
