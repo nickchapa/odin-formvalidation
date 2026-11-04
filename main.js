@@ -38,3 +38,10 @@ function passConfirmError(){
 passwordConfirmation.addEventListener("input", (e) => {
     passConfirmError();
 });
+
+password.addEventListener("input", (e) => {
+    if(password.validity.valueMissing) console.log('no password entered');
+    if(password.validity.tooShort){
+        console.log('console validity tooShort triggered');
+    } else console.log('password long enough');
+})
