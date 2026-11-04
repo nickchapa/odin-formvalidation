@@ -29,7 +29,7 @@ function showError(){
 }
 
 function passConfirmError(){
-    if(password.value != passwordConfirmation.value){
+    if(passwordConfirmation.value != password.value){
         console.log('password and confirmation does not match');
     }
     else console.log('passwords match');
