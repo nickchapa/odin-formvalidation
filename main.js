@@ -55,4 +55,9 @@ password.addEventListener("input", (e) => {
     else if(password.validity.tooShort){
         console.log('console validity tooShort triggered');
     } else console.log('password long enough');
+
+    if(passwordConfirmation.value && password.value != passwordConfirmation.value){
+        console.log("password confirmation doesn't match");
+        passwordConfirmation.className = 'error active';
+    }
 })
