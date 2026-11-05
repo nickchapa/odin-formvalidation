@@ -29,10 +29,21 @@ function showError(){
 }
 
 function passConfirmError(){
-    if(passwordConfirmation.value != password.value){
+    passwordConfirmation.pattern = password.value;
+    console.log(password.validity.valid);
+
+    if(passwordConfirmation.validity.patternMismatch){
         console.log('password and confirmation does not match');
+        passwordConfirmation.className = 'error active';
     }
-    else console.log('passwords match');
+    else if(!password.validity.valid){
+        console.log('enter valid password before confirming');
+        passwordConfirmation.className = 'error active';
+    }
+    else {
+        console.log('passwords match');
+        passwordConfirmation.className = 'error'
+    }
 }
 
 passwordConfirmation.addEventListener("input", (e) => {
