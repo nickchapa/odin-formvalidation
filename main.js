@@ -1,6 +1,6 @@
 const email = document.querySelector('#input-email');
 const form = document.querySelector('#form');
-const emailError = document.querySelector('.error-email');
+const emailError = document.querySelector('.email.error');
 const password = document.querySelector('#input-pass');
 const passwordConfirmation = document.querySelector('#input-pass-confirm');
 
@@ -19,11 +19,11 @@ function showError(){
         email.validity.valueMissing
     ){
         emailError.textContent = 'Invalid Email, Mate';
-        emailError.className = 'error active';
+        emailError.className = 'email error active';
         console.log('invalid email');
     } else {
         emailError.textContent = "Bonza Email, Mate!";
-        emailError.className = 'error';
+        emailError.className = 'email error';
         console.log('valid email!')
     }
 }
