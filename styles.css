@@ -5,19 +5,19 @@ input {
 }
 
 input:user-invalid {
-    border: dotted 2px red;
+    outline: dotted 2px red;
 }
 
 input:valid {
-    border: solid 2px blue;
+    outline: solid 2px blue;
 }
 
 input:focus {
-    border: solid 2px green;
+    outline: solid 2px green;
 }
 
 input:focus:invalid {
-    border: solid 2px darkred;
+    outline: solid 2px darkred;
 }
 
 .error.active {
