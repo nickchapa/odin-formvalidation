@@ -28,7 +28,7 @@ function showError(){
     }
 }
 
-function passConfirmError(){
+function showPassConfirmError(){
     passwordConfirmation.pattern = password.value;
     console.log(password.validity.valid);
 
