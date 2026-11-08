@@ -3,6 +3,8 @@ const form = document.querySelector('#form');
 const emailError = document.querySelector('.email.error');
 const password = document.querySelector('#input-pass');
 const passwordConfirmation = document.querySelector('#input-pass-confirm');
+const passErrorSpan = document.querySelector('.pass.error');
+const passConfirmErrorSpan = document.querySelector('.pass-confirm.error');
 
 email.addEventListener("input", (e) => {
     showError();
@@ -33,31 +35,42 @@ function showPassConfirmError(){
     console.log(password.validity.valid);
 
     if(passwordConfirmation.validity.patternMismatch){
-        console.log('password and confirmation does not match');
-        passwordConfirmation.className = 'error active';
+        passConfirmErrorSpan.textContent = 'Does not match password.';
+        passConfirmErrorSpan.className = 'pass-confirm error active';
     }
     else if(!password.validity.valid){
-        console.log('enter valid password before confirming');
-        passwordConfirmation.className = 'error active';
+        passConfirmErrorSpan.textContent = 'Enter valid password before confirming.';
+        passConfirmErrorSpan.className = 'pass-confirm error active';
     }
     else {
-        console.log('passwords match');
-        passwordConfirmation.className = 'error'
+        passConfirmErrorSpan.textContent = 'Matchy matchy!';
+        passConfirmErrorSpan.className = 'pass-confirm error';
     }
 }
 
 passwordConfirmation.addEventListener("input", (e) => {
-    passConfirmError();
+    showPassConfirmError();
 });
 
 password.addEventListener("input", (e) => {
-    if(password.validity.valueMissing) console.log('no password entered');
+    showPassError();
+})
+
+function showPassError(){
+    if(password.validity.valueMissing) {
+        passErrorSpan.textContent = 'Please enter a password.';
+        passErrorSpan.className = 'pass error active';
+    }
     else if(password.validity.tooShort){
-        console.log('console validity tooShort triggered');
-    } else console.log('password long enough');
+        passErrorSpan.textContent = 'Password is too short.';
+        passErrorSpan.className = 'pass error active';
+    } else {
+        passErrorSpan.textContent = 'All good!';
+        passErrorSpan.className = 'pass error';
+    }
 
     if(passwordConfirmation.value && password.value != passwordConfirmation.value){
-        console.log("password confirmation doesn't match");
-        passwordConfirmation.className = 'error active';
+        passConfirmErrorSpan.textContent = "Password confirmation doesn't match.";
+        passConfirmErrorSpan.className = 'pass-confirm error active';
     }
-})
+}
