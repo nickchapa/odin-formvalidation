@@ -8,7 +8,7 @@ input:user-invalid {
     outline: dotted 2px red;
 }
 
-input:valid {
+input:user-valid {
     outline: solid 2px blue;
 }
 
