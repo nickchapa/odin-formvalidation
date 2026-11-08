@@ -4,6 +4,12 @@ input {
     outline: none;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 input:user-invalid {
     outline: dotted 2px red;
 }
