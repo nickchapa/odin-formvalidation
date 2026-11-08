@@ -5,6 +5,7 @@ const password = document.querySelector('#input-pass');
 const passwordConfirmation = document.querySelector('#input-pass-confirm');
 const passErrorSpan = document.querySelector('.pass.error');
 const passConfirmErrorSpan = document.querySelector('.pass-confirm.error');
+const postalInput = document.querySelector('#input-postal-code');
 
 email.addEventListener("input", (e) => {
     showError();
@@ -74,3 +75,7 @@ function showPassError(){
         passConfirmErrorSpan.className = 'pass-confirm error active';
     }
 }
+
+postalInput.addEventListener('input', (e) => {
+    e.target.value = e.target.value.replace(/\D/g, '')
+});
