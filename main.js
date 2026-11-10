@@ -1,11 +1,13 @@
 const email = document.querySelector('#input-email');
 const form = document.querySelector('#form');
 const emailError = document.querySelector('.email.error');
+const countryInput = document.querySelector('#input-country');
 const password = document.querySelector('#input-pass');
 const passwordConfirmation = document.querySelector('#input-pass-confirm');
 const passErrorSpan = document.querySelector('.pass.error');
 const passConfirmErrorSpan = document.querySelector('.pass-confirm.error');
 const postalInput = document.querySelector('#input-postal-code');
+const submitBtnSpan = document.querySelector('.submit-btn-span');
 
 email.addEventListener("input", (e) => {
     showError();
@@ -13,8 +15,21 @@ email.addEventListener("input", (e) => {
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-    console.log('submit button pressed!');
-    console.log(email.validity.valid);
+    if(!email.validity.valid){
+        console.log('invalid email');
+    }
+    if(!countryInput.validity.valid){
+        console.log('invalid country input');
+    }
+    if(!postalInput.validity.valid){
+        console.log('invalid postal code');
+    }
+    if(!password.validity.valid){
+        console.log('invalid password');
+    }
+    if(!passwordConfirmation.validity.valid){
+        console.log('invalid password confirmation');
+    }
 })
 
 function showError(){
