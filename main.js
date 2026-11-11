@@ -2,11 +2,13 @@ const email = document.querySelector('#input-email');
 const form = document.querySelector('#form');
 const emailError = document.querySelector('.email.error');
 const countryInput = document.querySelector('#input-country');
+const countryErrorSpan = document.querySelector('.country.error');
 const password = document.querySelector('#input-pass');
 const passwordConfirmation = document.querySelector('#input-pass-confirm');
 const passErrorSpan = document.querySelector('.pass.error');
 const passConfirmErrorSpan = document.querySelector('.pass-confirm.error');
 const postalInput = document.querySelector('#input-postal-code');
+const postalErrorSpan = document.querySelector('.postal.error');
 const submitBtnSpan = document.querySelector('.submit-btn-span');
 
 email.addEventListener("input", (e) => {
@@ -19,10 +21,10 @@ form.addEventListener("submit", (e) => {
         console.log('invalid email');
     }
     if(!countryInput.validity.valid){
-        console.log('invalid country input');
+        showCountryError();
     }
     if(!postalInput.validity.valid){
-        console.log('invalid postal code');
+        showPostalCodeError();
     }
     if(!password.validity.valid){
         console.log('invalid password');
@@ -94,3 +96,17 @@ function showPassError(){
 postalInput.addEventListener('input', (e) => {
     e.target.value = e.target.value.replace(/\D/g, '')
 });
+
+function showPostalCodeError(){
+    if(postalInput.validity.valueMissing){
+        postalErrorSpan.className = 'postal error active';
+        postalErrorSpan.textContent = 'Please input a valid Postal Code.'
+    }
+}
+
+function showCountryError(){
+    if(countryInput.validity.valueMissing){
+        countryErrorSpan.className = 'country error active';
+        countryErrorSpan.textContent = 'Please input a country.';
+    }
+}
