@@ -18,7 +18,7 @@ email.addEventListener("input", (e) => {
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     if(!email.validity.valid){
-        console.log('invalid email');
+        showError();
     }
     if(!countryInput.validity.valid){
         showCountryError();
@@ -27,10 +27,10 @@ form.addEventListener("submit", (e) => {
         showPostalCodeError();
     }
     if(!password.validity.valid){
-        console.log('invalid password');
+        showPassError();
     }
     if(!passwordConfirmation.validity.valid){
-        console.log('invalid password confirmation');
+        showPassConfirmError();
     }
 })
 
