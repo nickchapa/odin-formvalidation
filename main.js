@@ -95,12 +95,26 @@ function showPassError(){
 
 postalInput.addEventListener('input', (e) => {
     e.target.value = e.target.value.replace(/\D/g, '')
+
+    if(postalInput.value){
+        postalErrorSpan.className = 'postal error';
+        postalErrorSpan.textContent = '';
+    }
 });
+
+countryInput.addEventListener('input', (e) => {
+    if(countryInput.value){
+        countryErrorSpan.className = 'country error';
+        countryErrorSpan.textContent = '';
+    }
+})
 
 function showPostalCodeError(){
     if(postalInput.validity.valueMissing){
         postalErrorSpan.className = 'postal error active';
         postalErrorSpan.textContent = 'Please input a valid Postal Code.'
+    } else {
+        postalErrorSpan.className = 'postal error';
     }
 }
 
@@ -108,5 +122,7 @@ function showCountryError(){
     if(countryInput.validity.valueMissing){
         countryErrorSpan.className = 'country error active';
         countryErrorSpan.textContent = 'Please input a country.';
+    } else {
+        countryErrorSpan.className = 'country error';
     }
 }
